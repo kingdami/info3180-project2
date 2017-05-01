@@ -1,0 +1,110 @@
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+
+    <!-- Meta info -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Wishers | Username </title>
+
+    <!-- Styles -->
+    <link href="../static/css/main.css" rel="stylesheet" media="screen, print" type="text/css" />
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css" type="text/css" />
+</head>
+    <div id="content" ng-controller="cardctrl" class="container-fluid">
+        
+  
+        
+        <section id="banner" data-video="images/banner">
+			
+			<div class="inner">
+				<header>
+					<h1>{{ fname }}&nbsp{{lname}}</h1>
+					<p>Welcome to your wish list<br />
+					From this page you are able to add new wishes, share wishes with friends and search for potention wishes.</p>
+				</header>
+                <button id="add" class="more"><i class="glyphicon glyphicon-plus"></i></button>
+        		<button id="shareb" class="more"><i class="glyphicon glyphicon-share"></i></button>
+        		<button id="search" class="more" ng-click="searchWish()"><i class="glyphicon glyphicon-search"></i></button>
+		    </div>
+		</section>
+		
+		<div class="thumbnails" >
+		    <div class="card" ng-repeat="wish in wishes track by wish.id">
+				<a href="#" class="image fit"><img ng-src="{{ wish.thumbnail }}" alt="" /></a>
+				<div class="inner">
+					<h3>{{ wish.title }}</h3>
+					<p>{{ wish.description }}</p>
+					<p>Item can be found at: <small><a href="{{ wish.url }}">{{ wish.url }}</a></small></p></br>
+					<small>Added on: {{ wish.added }}</small>
+					<a ng-click="removeWish(wish.id)" href="#" class="button style3 fit" data-poptrox="youtube,800x400">Delete</a>
+				</div>
+			</div>
+        </div>
+
+        </div>
+        
+        <div id="share" ng-controller="sharectrl" style="display:none">
+            <form id= "shareform" class= "modal-content">
+                <div class="form-group">
+                    <button type="button" style="float:right"class="close1" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <label >Recipient's Name</label>
+                    <input ng-model="name" type="text" class="form-control" placeholder="jhondoe">
+                    <label >Recipient's email address</label>
+                    <input ng-model="sendemail" type="email" class="form-control" placeholder="jhondoe@gmail.com">
+                </div>
+                <div class="modal-footer"> 
+                    <button id="submit" ng-click="shareWish()" type="button" class="btn btn-success">Share Wishlist</button> 
+                </div>
+            </form>
+        </div>
+        <div ng-controller="modalctrl" id="modal" style="display:none">
+            <form id= "form" class= "modal-content">
+                <div class="form-group">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <label for="title">Wish Title</label>
+                    <input ng-model="title" type="text" class="form-control" placeholder="Title" value="{{ title }}">
+                </div>
+                <div class="form-group">
+                    <label for="description">Wish Description</label>
+                    <textarea class="form-control" ng-model="description" placeholder="Give a short description." id="description" required="" data-validation-required-message="Please enter a description."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="url">URL</label>
+                    <input ng-model="url" type="text" class="form-control" placeholder="Enter the url for your wish">
+                </div>
+                <div class="form-group">
+                    <label class="form-check-label">Does this url have a photo of your wish?</label>
+                    <input type="radio" class="form-check-input" ng-click="scrape()" name="optionsRadios" id="yes" value="yes"> Yes
+                    <input type="radio" class="form-check-input" ng-click="scrape()" name="optionsRadios" id="no" value="no"> No
+                </div>
+                <div id="thumbnails" class="form-group">
+                    <label for="thumbnail">Thumbnail</label><br/><small>Choose an image from the list below to represent your wish.</small><br/>
+
+                    <div class = "imgoptions " ng-repeat="option in options track by $index">
+                        <span class="chosenimg " ng-click="chosenImg($index)"><a href=""><img ng-model="img" id="help" class="img" ng-src= "{{ option }}"></a></span>
+                    </div>
+                </div>
+                <div class="modal-footer"> 
+                    <button id="submit" ng-click="addWish()" type="button" class="btn btn-success">Add Wish</button> 
+                </div>
+            </form>
+        </div>
+        </div>
+        
+        
+        <footer id="footer">
+					<div class="inner">
+						<h2>Wishlist</h2>
+						<p>A group project done as partial fulfilment of INFO3180</p>
+
+						<ul class="icons">
+							<li><a href="#" class="icon fa fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Panotech. Design: Damian Whyte</p>
+					</div>
+				</footer>
+    </div>
+
