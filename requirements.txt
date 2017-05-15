@@ -6,11 +6,13 @@ Flask-WTF
 Flask-SQLAlchemy
 Flask-Migrate
 Flask-Login
+Flask-Heroku
 psycopg2
 beautifulsoup4
 requests
 bs4
 PyJWT
+datetime
 
 # ----------------------
 # Production Server
