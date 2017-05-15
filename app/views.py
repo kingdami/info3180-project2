@@ -28,7 +28,8 @@ from email import encoders
 @app.route('/')
 def home():
     """Render website's home page."""
-    return make_response(open('app/templates/index.html').read())
+    # return make_response(open('app/templates/index.html').read())
+    return app.send_static_file('sub/index.html')
     
     
 def create_token(user):
