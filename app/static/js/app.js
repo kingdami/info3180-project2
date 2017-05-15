@@ -107,7 +107,7 @@ var app = angular.module('myApp', ['ngRoute']);
       })
       .catch(function(error) {
           $('#loading').hide();
-          alert(error);
+          alert(error.data.message);
         });
       
     };
