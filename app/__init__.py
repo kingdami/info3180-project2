@@ -11,7 +11,8 @@ app.config['TOKEN_SECRET'] = " now i have made a super secret token string"
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True # added just to suppress a warning
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://pivebiapvavsjx:3dff4b87aee77f51fd0e10cad60c8cb7e7e84d5883f488c473a89b3bb16155a6@ec2-54-225-119-223.compute-1.amazonaws.com:5432/dec6ebeupie39d"
+DATABASE_URL='postgres://hqaxtohhpsvuyj:4b7f4957ddde9dccbf7f739f2496d5a9d5a66c5535aab2a981a0480bb657472e@ec2-54-163-252-55.compute-1.amazonaws.com:5432/d21p31bgba74om'
+HEROKU_POSTGRESQL_CHARCOAL_URL='postgres://nzeedrfyktybgw:401b9e8328a019b0c413c786985ce3a9a9df8a7035cf9f0ff83c564098b7cab3@ec2-184-73-236-170.compute-1.amazonaws.com:5432/dadursdb5ouqav'
 
 db = SQLAlchemy(app)
 
